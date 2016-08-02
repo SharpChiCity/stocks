@@ -43,6 +43,7 @@ if __name__ == '__main__':
 
     # nasdaq_stock_list = {"PIH":"1347 Property Insurance Holdings, Inc.", "FLWS":"1-800 FLOWERS.COM, Inc."}
     
+    
 
     interval = 60     # (multiple of 60 s)
     nbr = 15           # of days
@@ -50,7 +51,9 @@ if __name__ == '__main__':
 
     df_ = pd.DataFrame(columns=headers)
 
+    output_file_path = os.path.dirname(os.path.realpath(__file__))
+
     for key, values in nasdaq_stock_list.items():
         df_ = api_call(key, df_)
         time.sleep(30)
-        df_.to_csv("C:/users/monstar/python/stocks/20160721-20160801.csv", sep='\t', index = False)
+        df_.to_csv(outputfilepath + '20160721-20160801.csv", sep='\t', index = False)
